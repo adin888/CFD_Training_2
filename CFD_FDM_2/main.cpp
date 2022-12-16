@@ -1,6 +1,8 @@
 #include"cfd_head.h"
 
-void main()
+int main()
 {
+	Roe_Riemann_Solver();
 
+	return 0;
 }
