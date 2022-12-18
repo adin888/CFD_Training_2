@@ -143,8 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Euler_1D.cpp" />
+    <ClCompile Include="HLLC_Riemann_Solver.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Roe_Riemann_Solver.cpp" />
+    <ClCompile Include="Rusanov_Riemann_Solver.cpp" />
     <ClCompile Include="WENO5_Scheme.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

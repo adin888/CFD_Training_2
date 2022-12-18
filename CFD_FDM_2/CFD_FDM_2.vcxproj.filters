@@ -35,5 +35,11 @@
     <ClCompile Include="Euler_1D.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
+    <ClCompile Include="HLLC_Riemann_Solver.cpp">
+      <Filter>源文件\1D_Euler_Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Rusanov_Riemann_Solver.cpp">
+      <Filter>源文件\1D_Euler_Solver</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

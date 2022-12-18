@@ -4,7 +4,7 @@
 * -Using Reo approximate Riemann solver 
 * -Using WENO-5 Scheme to reconstruct the left and right side fluxes at the interface
 * -Using Runge-Kutta-3 Scheme for time integration
-* -Data is saved every 0.025s
+* -Data is saved every 0.02s
 */
 
 /*
@@ -96,13 +96,13 @@ vector< vector<double> > roe(int nx, double gamma, vector< vector<double> > qL, 
         L33 = gamma - 1.0;
 
         R11 = 1.0;
-        R12 = uu;
-        R13 = phi2 / (gamma - 1.0);
-        R21 = beta;
+        R21 = uu;
+        R31 = phi2 / (gamma - 1.0);
+        R12 = beta;
         R22 = beta * (uu + aa);
-        R23 = beta * (hh + uu * aa);
-        R31 = beta;
-        R32 = beta * (uu - aa);
+        R32 = beta * (hh + uu * aa);
+        R13 = beta;
+        R23 = beta * (uu - aa);
         R33 = beta * (hh - uu * aa);
          /* Compute f using Roe Solver */
         for (int m = 0; m < 3; m++)
@@ -120,7 +120,7 @@ vector< vector<double> > roe(int nx, double gamma, vector< vector<double> > qL, 
 
         for (int m = 0; m < 3; m++)
         {
-            f[i][m] = 0.5 * ((fR[i][m]) + fL[i][m]) - dddq[m];
+            f[i][m] = 0.5 * (fR[i][m] + fL[i][m]) - dddq[m];
         }
     }
     return f;
@@ -231,7 +231,7 @@ void Roe_Riemann_Solver()
     double dt = 0.0001;
     int nt = ceil(t / dt);
 
-    int ns = 20;   //Save ten sets of data results
+    int ns = 20;   //Save twenty sets of data results
     double ds = t / ns;          //The time interval for saving data
 
     vector<double> x(nx);
