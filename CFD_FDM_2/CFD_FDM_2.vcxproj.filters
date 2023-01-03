@@ -16,6 +16,12 @@
     <Filter Include="源文件\1D_Euler_Solver">
       <UniqueIdentifier>{04d43fbc-0533-4e2a-8ce5-16281b967819}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\2D_Poisson_Equation">
+      <UniqueIdentifier>{cee7e0a0-605a-4a01-b975-d91cdbb485f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="库文件">
+      <UniqueIdentifier>{6cd1d046-3d21-4c6c-8884-8ab1204199f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cfd_head.h">
@@ -41,5 +47,25 @@
     <ClCompile Include="Rusanov_Riemann_Solver.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FFT.cpp">
+      <Filter>源文件\2D_Poisson_Equation</Filter>
+    </ClCompile>
+    <ClCompile Include="Gauss_seidel.cpp">
+      <Filter>源文件\2D_Poisson_Equation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3l-3.lib">
+      <Filter>库文件</Filter>
+    </Library>
+    <Library Include="..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3f-3.lib">
+      <Filter>库文件</Filter>
+    </Library>
+    <Library Include="..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3-3.lib">
+      <Filter>库文件</Filter>
+    </Library>
   </ItemGroup>
 </Project>

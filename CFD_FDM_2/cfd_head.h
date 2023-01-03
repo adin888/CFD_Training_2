@@ -5,8 +5,12 @@
 #include<math.h>
 #include<algorithm>
 #include<vector>
+#include <cstring>
+#include <fftw3.h>
+#include <Eigen\Dense>
 
 using namespace std;
+using namespace Eigen;
 
 #define PI acos(-1)
 
@@ -37,11 +41,23 @@ vector<double> Wavespeed(int nx, double gamma, vector< vector<double> > qL, vect
 
 #pragma endregion
 
+#pragma region FFTSolver
+void FFT_Solver();
+
+#pragma endregion
+
+#pragma region GaussSeidelSolver
+void GaussSeidelSolver();
+
+#pragma endregion
+
 #pragma region Function
 
 vector< vector<double> > fluxes(int nx, double gamma, vector< vector<double> > q, vector< vector<double> > f);
 double wL(double u1, double u2, double u3, double u4, double u5);
 double wR(double u1, double u2, double u3, double u4, double u5);
-
+void fft(int nx, int ny, vector< vector<double> > f, fftw_complex *ff);
+void ifft(int nx, int ny, vector< vector<double> > &u, vector< vector<fftw_complex> > uf);
+double ComputeL2norm(int nx, int ny, MatrixXd erro);
 #pragma endregion
 

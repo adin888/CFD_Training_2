@@ -4,7 +4,8 @@ int main()
 {
 	//Roe_Riemann_Solver();
 	//HLLC_Riemann_Solver();
-	Rusanov_Riemann_Solver();
-
+	//Rusanov_Riemann_Solver();
+	//FFT_Solver();
+	GaussSeidelSolver();
 	return 0;
 }

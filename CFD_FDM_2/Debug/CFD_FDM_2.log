@@ -1,14 +1,9 @@
-﻿  Euler_1D.cpp
-  HLLC_Riemann_Solver.cpp
-C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\HLLC_Riemann_Solver.cpp(123,14): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\HLLC_Riemann_Solver.cpp(220,12): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-  main.cpp
-  Roe_Riemann_Solver.cpp
-C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\Roe_Riemann_Solver.cpp(135,14): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\Roe_Riemann_Solver.cpp(232,12): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-  Rusanov_Riemann_Solver.cpp
-C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\Rusanov_Riemann_Solver.cpp(101,14): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\Rusanov_Riemann_Solver.cpp(198,12): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-  WENO5_Scheme.cpp
-  正在生成代码...
-  CFD_FDM_2.vcxproj -> C:\Users\Administrator\source\repos\CFD_FDM_2\Debug\CFD_FDM_2.exe
+﻿main.obj : error LNK2019: 无法解析的外部符号 __imp__fftw_execute，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 __imp__fftw_plan_dft_1d，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 __imp__fftw_destroy_plan，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 __imp__fftw_malloc，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 __imp__fftw_free，函数 _main 中引用了该符号
+..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3-3.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3f-3.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3l-3.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+C:\Users\Administrator\source\repos\CFD_FDM_2\Debug\CFD_FDM_2.exe : fatal error LNK1120: 5 个无法解析的外部命令
