@@ -148,6 +148,7 @@
     <ClInclude Include="cfd_head.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Conjugate_Gradient.cpp" />
     <ClCompile Include="Euler_1D.cpp" />
     <ClCompile Include="FFT.cpp" />
     <ClCompile Include="Gauss_seidel.cpp" />

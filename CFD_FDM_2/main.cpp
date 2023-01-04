@@ -6,6 +6,7 @@ int main()
 	//HLLC_Riemann_Solver();
 	//Rusanov_Riemann_Solver();
 	//FFT_Solver();
-	GaussSeidelSolver();
+	//GaussSeidelSolver();
+	ConjugateGradientSolver();
 	return 0;
 }

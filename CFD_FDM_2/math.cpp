@@ -39,3 +39,17 @@ double ComputeL2norm(int nx, int ny, MatrixXd erro)
     rms = sqrt(rms / ((nx - 1) * (ny - 1)));
     return rms;
 }
+
+void CalculateResidual(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd un, MatrixXd& r)
+{
+    double dxx, dyy;
+    for (int j = 1; j < nx; j++)
+    {
+        for (int i = 1; i < ny; i++)
+        {
+            dxx = (un(i + 1, j) - 2 * un(i, j) + un(i - 1, j)) / dx / dx;
+            dyy = (un(i, j + 1) - 2 * un(i, j) + un(i, j - 1)) / dy / dy;
+            r(i, j) = f(i, j) - dxx - dyy;
+        }
+    }
+}
