@@ -46,6 +46,11 @@ void FFT_Solver();
 
 #pragma endregion
 
+#pragma region FSTSolver
+void FST_Solver();
+
+#pragma endregion
+
 #pragma region GaussSeidelSolver
 void GaussSeidelSolver();
 

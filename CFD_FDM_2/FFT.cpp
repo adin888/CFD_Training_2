@@ -2,15 +2,11 @@
 
 MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd u)
 {
-    VectorXd wx(nx);
-    VectorXd wy(ny);
-    
     int rounded = floor((nx + 1) / 2 + 1);
     MatrixXcd fF(rounded, ny + 1);
     MatrixXcd uF(rounded, ny + 1);
 
-    MatrixXd udebug(u.rows(), u.cols());
-
+    //MatrixXd udebug(u.rows(), u.cols());
     
     double xx = 2.0 / (dx * dx);
     double yy = 2.0 / (dy * dy);
@@ -18,17 +14,6 @@ MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixX
 
     double dw = 2.0 * PI / nx;                     // nx = ny in this example
     double eps = 1.0e-6;
-    
-    int half = ceil(nx / 2);
-    for (int i = 0; i < half; i++)
-    {
-        wx(i) = dw * i;
-        wx(i + half) = dw * (i - half);
-    }
-
-    wx(0) = eps;
-
-    wy = wx;
 
     //fft(nx, ny, f, ff);
     fftw_plan plan;
@@ -42,8 +27,8 @@ MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixX
     {
         for (int j = 0; j < ny; j++)
         {
-            //uF(i, j) = fF(i, j) / (xy + xx * cos(wx(i)) + yy * cos(wy(j)));
-            uF(i, j) = fF(i, j) / (-pow(wx(i),2)- pow(wy(i), 2));
+            uF(i, j) = fF(i, j) / (xy + xx * cos(2*PI*i/nx) + yy * cos(2*PI*j/ny));
+            //uF(i, j) = fF(i, j) / (-pow(wx(i),2)- pow(wy(i), 2));
         }
     }
 

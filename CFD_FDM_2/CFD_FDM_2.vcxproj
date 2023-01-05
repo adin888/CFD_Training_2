@@ -151,6 +151,7 @@
     <ClCompile Include="Conjugate_Gradient.cpp" />
     <ClCompile Include="Euler_1D.cpp" />
     <ClCompile Include="FFT.cpp" />
+    <ClCompile Include="FST.cpp" />
     <ClCompile Include="Gauss_seidel.cpp" />
     <ClCompile Include="HLLC_Riemann_Solver.cpp" />
     <ClCompile Include="main.cpp" />

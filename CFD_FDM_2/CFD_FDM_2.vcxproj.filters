@@ -59,6 +59,9 @@
     <ClCompile Include="Conjugate_Gradient.cpp">
       <Filter>源文件\2D_Poisson_Equation</Filter>
     </ClCompile>
+    <ClCompile Include="FST.cpp">
+      <Filter>源文件\2D_Poisson_Equation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3l-3.lib">
