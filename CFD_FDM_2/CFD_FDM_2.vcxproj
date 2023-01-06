@@ -154,6 +154,7 @@
     <ClCompile Include="FST.cpp" />
     <ClCompile Include="Gauss_seidel.cpp" />
     <ClCompile Include="HLLC_Riemann_Solver.cpp" />
+    <ClCompile Include="Lid_Driven_Cavity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math.cpp" />
     <ClCompile Include="Roe_Riemann_Solver.cpp" />

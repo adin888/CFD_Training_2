@@ -61,6 +61,12 @@ void ConjugateGradientSolver();
 
 #pragma endregion
 
+#pragma region LDC_Solver
+void LDC_Solver();
+
+#pragma endregion
+
+
 #pragma region Function
 
 vector< vector<double> > fluxes(int nx, double gamma, vector< vector<double> > q, vector< vector<double> > f);
@@ -70,5 +76,6 @@ void fft(int nx, int ny, vector< vector<double> > f, fftw_complex *ff);
 void ifft(int nx, int ny, vector< vector<double> > &u, vector< vector<fftw_complex> > uf);
 double ComputeL2norm(int nx, int ny, MatrixXd erro);
 void CalculateResidual(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd un, MatrixXd& r);
+MatrixXd Numerical_FST(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd u);
 #pragma endregion
 
