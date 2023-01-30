@@ -24,6 +24,7 @@
     <ProjectGuid>{806a68a3-a578-433e-af6d-b424f4f0a40c}</ProjectGuid>
     <RootNamespace>CFDFDM2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CFD_Training_2</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -146,24 +147,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cfd_head.h" />
-    <ClInclude Include="Jacobi.h" />
+    <ClInclude Include="HOM%28SEM%29\Jacobi.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Conjugate_Gradient.cpp" />
-    <ClCompile Include="Euler_1D.cpp" />
-    <ClCompile Include="FFT.cpp" />
-    <ClCompile Include="FST.cpp" />
-    <ClCompile Include="Gauss_seidel.cpp" />
-    <ClCompile Include="HLLC_Riemann_Solver.cpp" />
-    <ClCompile Include="HOM1D_Helmholtz.cpp" />
-    <ClCompile Include="HOM_Test.cpp" />
-    <ClCompile Include="Jacobi.cpp" />
-    <ClCompile Include="Lid_Driven_Cavity.cpp" />
+    <ClCompile Include="FDM\Conjugate_Gradient.cpp" />
+    <ClCompile Include="FDM\Euler_1D.cpp" />
+    <ClCompile Include="FDM\FFT.cpp" />
+    <ClCompile Include="FDM\FST.cpp" />
+    <ClCompile Include="FDM\Gauss_seidel.cpp" />
+    <ClCompile Include="FDM\HLLC_Riemann_Solver.cpp" />
+    <ClCompile Include="HOM%28SEM%29\HOM1D_Helmholtz.cpp" />
+    <ClCompile Include="HOM%28SEM%29\HOM_Test.cpp" />
+    <ClCompile Include="HOM%28SEM%29\Jacobi.cpp" />
+    <ClCompile Include="FDM\Lid_Driven_Cavity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math.cpp" />
-    <ClCompile Include="Roe_Riemann_Solver.cpp" />
-    <ClCompile Include="Rusanov_Riemann_Solver.cpp" />
-    <ClCompile Include="WENO5_Scheme.cpp" />
+    <ClCompile Include="FDM\Roe_Riemann_Solver.cpp" />
+    <ClCompile Include="FDM\Rusanov_Riemann_Solver.cpp" />
+    <ClCompile Include="FDM\WENO5_Scheme.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3-3.lib" />

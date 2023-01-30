@@ -36,7 +36,7 @@
     <ClInclude Include="cfd_head.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Jacobi.h">
+    <ClInclude Include="HOM%28SEM%29\Jacobi.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,46 +44,46 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Roe_Riemann_Solver.cpp">
+    <ClCompile Include="FDM\Roe_Riemann_Solver.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
-    <ClCompile Include="Euler_1D.cpp">
+    <ClCompile Include="FDM\Euler_1D.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
-    <ClCompile Include="HLLC_Riemann_Solver.cpp">
+    <ClCompile Include="FDM\HLLC_Riemann_Solver.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
-    <ClCompile Include="Rusanov_Riemann_Solver.cpp">
+    <ClCompile Include="FDM\Rusanov_Riemann_Solver.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
-    <ClCompile Include="FFT.cpp">
+    <ClCompile Include="FDM\FFT.cpp">
       <Filter>源文件\2D_Poisson_Equation</Filter>
     </ClCompile>
-    <ClCompile Include="Gauss_seidel.cpp">
+    <ClCompile Include="FDM\Gauss_seidel.cpp">
       <Filter>源文件\2D_Poisson_Equation</Filter>
     </ClCompile>
-    <ClCompile Include="Conjugate_Gradient.cpp">
+    <ClCompile Include="FDM\Conjugate_Gradient.cpp">
       <Filter>源文件\2D_Poisson_Equation</Filter>
     </ClCompile>
-    <ClCompile Include="FST.cpp">
+    <ClCompile Include="FDM\FST.cpp">
       <Filter>源文件\2D_Poisson_Equation</Filter>
     </ClCompile>
-    <ClCompile Include="Lid_Driven_Cavity.cpp">
+    <ClCompile Include="FDM\Lid_Driven_Cavity.cpp">
       <Filter>源文件\2DIncomp_Navier-Stokes_Equation</Filter>
     </ClCompile>
-    <ClCompile Include="HOM_Test.cpp">
+    <ClCompile Include="HOM%28SEM%29\HOM_Test.cpp">
       <Filter>源文件\High Order Methods</Filter>
     </ClCompile>
     <ClCompile Include="math.cpp">
       <Filter>源文件\Math</Filter>
     </ClCompile>
-    <ClCompile Include="WENO5_Scheme.cpp">
+    <ClCompile Include="FDM\WENO5_Scheme.cpp">
       <Filter>源文件\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Jacobi.cpp">
+    <ClCompile Include="HOM%28SEM%29\Jacobi.cpp">
       <Filter>源文件\Math</Filter>
     </ClCompile>
-    <ClCompile Include="HOM1D_Helmholtz.cpp">
+    <ClCompile Include="HOM%28SEM%29\HOM1D_Helmholtz.cpp">
       <Filter>源文件\High Order Methods</Filter>
     </ClCompile>
   </ItemGroup>
