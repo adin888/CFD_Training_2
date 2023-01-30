@@ -9,7 +9,9 @@ int main()
 	//FST_Solver();
 	//GaussSeidelSolver();
 	//ConjugateGradientSolver();
-	LDC_Solver();
+	//LDC_Solver();
+	//FittingFunction();
+	HOM1DHelmholtz();
 
 	return 0;
 }

@@ -25,9 +25,18 @@
     <Filter Include="源文件\2DIncomp_Navier-Stokes_Equation">
       <UniqueIdentifier>{5d47dacb-9068-412e-b206-7e76847a3b57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\High Order Methods">
+      <UniqueIdentifier>{946b15e9-d2a6-4e85-a0e7-731c2922d58f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Math">
+      <UniqueIdentifier>{0fa24d1c-ac59-4e11-93ec-66a28fcccbcd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cfd_head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Jacobi.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,9 +47,6 @@
     <ClCompile Include="Roe_Riemann_Solver.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
-    <ClCompile Include="WENO5_Scheme.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Euler_1D.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
     </ClCompile>
@@ -49,9 +55,6 @@
     </ClCompile>
     <ClCompile Include="Rusanov_Riemann_Solver.cpp">
       <Filter>源文件\1D_Euler_Solver</Filter>
-    </ClCompile>
-    <ClCompile Include="math.cpp">
-      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="FFT.cpp">
       <Filter>源文件\2D_Poisson_Equation</Filter>
@@ -67,6 +70,21 @@
     </ClCompile>
     <ClCompile Include="Lid_Driven_Cavity.cpp">
       <Filter>源文件\2DIncomp_Navier-Stokes_Equation</Filter>
+    </ClCompile>
+    <ClCompile Include="HOM_Test.cpp">
+      <Filter>源文件\High Order Methods</Filter>
+    </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>源文件\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="WENO5_Scheme.cpp">
+      <Filter>源文件\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Jacobi.cpp">
+      <Filter>源文件\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="HOM1D_Helmholtz.cpp">
+      <Filter>源文件\High Order Methods</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

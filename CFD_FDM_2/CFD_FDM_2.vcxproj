@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cfd_head.h" />
+    <ClInclude Include="Jacobi.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Conjugate_Gradient.cpp" />
@@ -154,6 +155,9 @@
     <ClCompile Include="FST.cpp" />
     <ClCompile Include="Gauss_seidel.cpp" />
     <ClCompile Include="HLLC_Riemann_Solver.cpp" />
+    <ClCompile Include="HOM1D_Helmholtz.cpp" />
+    <ClCompile Include="HOM_Test.cpp" />
+    <ClCompile Include="Jacobi.cpp" />
     <ClCompile Include="Lid_Driven_Cavity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math.cpp" />
