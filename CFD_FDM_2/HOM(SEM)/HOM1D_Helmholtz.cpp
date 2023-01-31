@@ -1,6 +1,10 @@
-#include"cfd_head.h"
-#include"Jacobi.h"
-
+#include"../Header/cfd_head.h"
+#include"../Header/Jacobi.h"
+/*
+* -Using Galerkin method to solve 1d-Helmholtz equation
+* -Using GLL points
+* -Using CG(Conjugate gradient method) to solve system of equations
+*/
 ArrayXXd Test_f(double lambda, ArrayXXd x)
 {
 	ArrayXXd y;
@@ -183,7 +187,7 @@ void HOM1DHelmholtz()
 	/* write the result */
 	ofstream dataOut;
 
-	dataOut.open("test_data.csv", ios::out | ios::trunc);
+	dataOut.open("u_final.csv", ios::out | ios::trunc);
 
 	dataOut << setprecision(16) << "errMax" << "," << errMax << "," << "errL2" << "," << errL2 << endl;
 	dataOut << "x" << "," << "uex" << "," << "uh" << endl;

@@ -1,15 +1,15 @@
-#include"cfd_head.h"
+#include"../Header/cfd_head.h"
 
 /*
 * -Using Reo approximate Riemann solver 
 * -Using WENO-5 Scheme to reconstruct the left and right side fluxes at the interface
 * -Using Runge-Kutta-3 Scheme for time integration
-* -Data is saved every 0.02s
+* -Data is saved every 0.01s
 */
 
 /*
-* Calculate right hand term of the inviscid Burgers equation
-* r = -udu/dx
+* Calculate right hand term of the Euler equation
+* r = -Adq/dx A=dF/dq
 */
 vector< vector<double> > RRrhs(int nx, double dx, double gamma, vector< vector<double> > q, vector< vector<double> > r)
 {

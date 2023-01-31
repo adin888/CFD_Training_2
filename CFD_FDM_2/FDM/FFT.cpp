@@ -1,5 +1,10 @@
 #include"cfd_head.h"
 
+/*
+* -Using Fast Fourier Transform to slove Poisson equation for the periodic domain
+* -Using additional library FFTW3, but there were problems with the calculation
+*/
+
 MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd u)
 {
     int rounded = floor((nx + 1) / 2 + 1);
@@ -52,8 +57,8 @@ void FFT_Solver()
     double x_r = 1.0;
     double y_l = 0.0;
     double y_r = 1.0;
-    int nx = 512;
-    int ny = 512;
+    int nx = 32;
+    int ny = 32;
     double dx = (x_r - x_l) / nx;
     double dy = (y_r - y_l) / ny;
 

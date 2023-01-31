@@ -1,11 +1,19 @@
-#include"cfd_head.h"
-/* viscous incompressible flow */
-/* A square cavity consisting of three rigid walls with no-slip conditions and a lid moving with a tangential unit velocity. */
+#include"../Header/cfd_head.h"
+
+/* 
+* -viscous incompressible flow 
+* -A square cavity consisting of three rigid walls with no-slip conditions and a lid moving with a tangential unit velocity
+* -Using Runge - Kutta - 3 Scheme for time integration
+* -Using second-order Arakawa scheme for the nonlinear terms dphi/dy*dw/dx-dphi/dx*dw/dy
+* -Total time t=0.1s
+*/
+
+
 void JBC(int nx, int ny, double dx, double dy, MatrixXd& w, MatrixXd psi)
 {
 	VectorXd one = VectorXd::Ones(nx + 1);
-	/* first order approximation for Jensen-vorticity boundary condition */
 
+	/* second order approximation for Jensen-vorticity boundary condition */
 	/* left and right */
 	w.col(0) = (-4.0 * psi.col(1) + 0.5 * psi.col(2)) / (dx * dx);
 	w.col(nx) = (-4.0 * psi.col(nx - 1) + 0.5 * psi.col(nx - 2)) / (dx * dx);
@@ -112,7 +120,7 @@ void LDC_Solver()
 	double dy = (y_r - y_l) / ny;
 
 	double dt = 0.001;
-	double tEnd = 10.0;
+	double tEnd = 0.1;
 	int nt = ceil(tEnd / dt);
 
 	double re = 100.0;
@@ -120,8 +128,8 @@ void LDC_Solver()
 	VectorXd x(nx + 1);
 	VectorXd y(ny + 1);
 
-	MatrixXd w = MatrixXd::Zero(nx + 1, ny + 1);                       //initial condition
-	MatrixXd psi = MatrixXd::Zero(nx + 1, ny + 1);
+	MatrixXd w = MatrixXd::Zero(nx + 1, ny + 1);                       //Vorticity
+	MatrixXd psi = MatrixXd::Zero(nx + 1, ny + 1);                     //Stream
 
 	for (int i = 0; i < nx + 1; i++)
 	{
@@ -146,8 +154,8 @@ void LDC_Solver()
 		psiStream << setprecision(16) << x[i] << ",";
 		for (int j = 0; j < ny + 1; j++)
 		{
-			wStream << setprecision(16) << w(i, j) << ",";
-			psiStream << setprecision(16) << psi(i, j) << ",";
+			wStream << setprecision(16) << w(j, i) << ",";
+			psiStream << setprecision(16) << psi(j, i) << ",";
 		}
 		wStream << endl;
 		psiStream << endl;

@@ -1,4 +1,14 @@
-#include"cfd_head.h"
+#include"../Header/cfd_head.h"
+
+/*
+* -Using Fast Sine Transform to slove Poisson equation for the periodic domain
+* -The transform was done manually and the calculation was slow. Further optimisation required
+* * -Exact result: 
+*                 ue(i, j) = sin(2.0 * PI * x(i)) * sin(2.0 * PI * y(j))
+*                + c1 * sin(km * 2.0 * PI * x(i)) * sin(km * 2.0 * PI * y(j));
+*                 f(i, j) = c2 * sin(2.0 * PI * x(i)) * sin(2.0 * PI * y(j))
+*                + c2 * sin(km * 2.0 * PI * x(i)) * sin(km * 2.0 * PI * y(j));
+*/
 
 MatrixXd Numerical_FST(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd u)
 {

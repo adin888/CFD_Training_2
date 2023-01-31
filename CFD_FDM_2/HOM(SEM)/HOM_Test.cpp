@@ -1,6 +1,11 @@
-#include"cfd_head.h"
-#include"Jacobi.h"
+#include"../Header/cfd_head.h"
+#include"../Header/Jacobi.h"
 
+/*
+* -This is about the basic use of the Galerkin method in SEM£¨spectral method£©/HOM£¨high order method£©. 
+* -It includes approximating the original function and finding integrals and differentiators.
+* -Approximation of different functions using GL points or GLL points.
+*/
 ArrayXd Function(ArrayXd x)
 {
 	ArrayXd y;

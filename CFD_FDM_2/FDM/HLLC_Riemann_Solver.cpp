@@ -8,8 +8,8 @@
 */
 
 /*
-* Calculate right hand term of the inviscid Burgers equation
-* r = -udu/dx
+* Calculate right hand term of the Euler equation
+* r = -Adq/dx A=dF/dq
 */
 vector< vector<double> > HRrhs(int nx, double dx, double gamma, vector< vector<double> > q, vector< vector<double> > r)
 {

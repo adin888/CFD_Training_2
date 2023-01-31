@@ -26,7 +26,7 @@ double Jacobi::Polynomial(double alpha, double beta, int nOrder, double x)
 	}
 	else
 	{
-		Pn = 1e10;
+		Pn = NAN;
 		cout << "erro: alpha or beta in JacobiPolynomial is out of range" << endl;
 	}
 
@@ -39,6 +39,9 @@ double Jacobi::PolynomialDerivative(double alpha, double beta, int nOrder, doubl
 	return dPn = 0.5 * (alpha + beta + nOrder + 1.0)
 		* Polynomial(alpha + 1.0, beta + 1.0, nOrder - 1.0, x);
 }
+
+/* Computing zeros of Jacobi polynomials with iteration */
+
 ArrayXd Jacobi::PolynomialZeros(double alpha, double beta, int nOrder)
 {
 	int maxIter = 100;

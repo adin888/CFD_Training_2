@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\software\c_lib\fftw-3.3.5-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Administrator\source\repos\CFD_FDM_2\CFD_FDM_2\Header;C:\software\c_lib\fftw-3.3.5-dll64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,8 +146,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cfd_head.h" />
-    <ClInclude Include="HOM%28SEM%29\Jacobi.h" />
+    <ClInclude Include="Header\cfd_head.h" />
+    <ClInclude Include="Header\Jacobi.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FDM\Conjugate_Gradient.cpp" />
@@ -161,7 +161,7 @@
     <ClCompile Include="HOM%28SEM%29\Jacobi.cpp" />
     <ClCompile Include="FDM\Lid_Driven_Cavity.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="math.cpp" />
+    <ClCompile Include="FDM\math.cpp" />
     <ClCompile Include="FDM\Roe_Riemann_Solver.cpp" />
     <ClCompile Include="FDM\Rusanov_Riemann_Solver.cpp" />
     <ClCompile Include="FDM\WENO5_Scheme.cpp" />

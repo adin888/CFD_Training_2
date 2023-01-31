@@ -33,10 +33,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cfd_head.h">
+    <ClInclude Include="Header\cfd_head.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="HOM%28SEM%29\Jacobi.h">
+    <ClInclude Include="Header\Jacobi.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,7 +74,7 @@
     <ClCompile Include="HOM%28SEM%29\HOM_Test.cpp">
       <Filter>源文件\High Order Methods</Filter>
     </ClCompile>
-    <ClCompile Include="math.cpp">
+    <ClCompile Include="FDM\math.cpp">
       <Filter>源文件\Math</Filter>
     </ClCompile>
     <ClCompile Include="FDM\WENO5_Scheme.cpp">

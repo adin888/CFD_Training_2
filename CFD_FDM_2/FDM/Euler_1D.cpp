@@ -1,4 +1,4 @@
-#include"cfd_head.h"
+#include"../Header/cfd_head.h"
 
 vector< vector<double> > fluxes(int nx, double gamma, vector< vector<double> > q, vector< vector<double> > f)
 {

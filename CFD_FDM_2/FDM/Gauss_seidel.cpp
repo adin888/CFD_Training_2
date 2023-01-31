@@ -1,4 +1,13 @@
-#include"cfd_head.h"
+#include"../Header/cfd_head.h"
+
+/*
+* -Using Gauss-Seidel iterative methods to slove Poisson equation with Dirichlet boundary condition
+* -Using the ratio of L2 to its initial value during the iteration as the criterion for convergence
+* -Exact result: 
+*           ue(i, j) = (x(i) * x(i) - 1.0) * (y(i) * y(i) - 1.0);
+*           f(i, j) = -2.0 * (2.0 - x(i) * x(i) - y(i) * y(i));
+*/
+
 
 MatrixXd GaussSeidel(int nx, int ny, int maxIter, double dx, double dy, double rms, double initRms, double tolerance,
 	MatrixXd r, MatrixXd f, MatrixXd un)
@@ -10,7 +19,7 @@ MatrixXd GaussSeidel(int nx, int ny, int maxIter, double dx, double dy, double r
 
 	double dxy = -2.0 / dx / dx - 2.0 / dy / dy;
 
-	for (int iterNum = 1; iterNum < 5*maxIter; iterNum++)
+	for (int iterNum = 1; iterNum < maxIter; iterNum++)
 	{
 		CalculateResidual(nx, ny, dx, dy, f, un, r);
 
@@ -35,13 +44,13 @@ void GaussSeidelSolver()
     double x_r = 1.0;
     double y_l = 0.0;
     double y_r = 1.0;
-    int nx = 512;
-    int ny = 512;
+    int nx = 128;
+    int ny = 128;
     double dx = (x_r - x_l) / nx;
     double dy = (y_r - y_l) / ny;
 
-    double tolerance = 1.0e-10;
-    int maxIter = 2e6;
+    double tolerance = 1.0e-5;
+    int maxIter = 1e5;
     double rms = 0.0;
     double initRms = 0.0;
 
@@ -58,7 +67,7 @@ void GaussSeidelSolver()
     {
         x[i] = x_l + dx * i;  //Assign node locations
     }
-    for (int i = 0; i < ny; i++)
+    for (int i = 0; i < ny + 1; i++)
     {
         y[i] = y_l + dy * i;  //Assign node locations
     }
@@ -66,10 +75,16 @@ void GaussSeidelSolver()
     {
         for (int j = 0; j < ny + 1; j++)
         {
-            ue(i, j) = (x(i) * x(i) - 1.0) * (y(i) * y(i) - 1.0);
-            f(i, j) = -2.0 * (2.0 - x(i) * x(i) - y(i) * y(i));
+            ue(i, j) = (x(i) * x(i) - 1.0) * (y(j) * y(j) - 1.0);
+            f(i, j) = -2.0 * (2.0 - x(i) * x(i) - y(j) * y(j));
         }
     }
+
+    /* Dirichlet boundary condition */
+    un.row(0) = ue.row(0);
+    un.row(nx) = ue.row(nx);
+    un.col(0) = ue.col(0);
+    un.col(ny) = ue.col(ny);
 
     un = GaussSeidel(nx, ny, maxIter, dx, dy, rms, initRms, tolerance, r, f, un);
 
