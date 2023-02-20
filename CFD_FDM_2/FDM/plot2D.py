@@ -40,7 +40,7 @@ def func(x, y):
 
 
 # 打开 CSV 文件
-with open('../w_final.csv', 'r') as f:
+with open('../u_final.csv', 'r') as f:
   
   reader = csv.reader(f)
   

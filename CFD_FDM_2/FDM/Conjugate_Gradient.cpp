@@ -17,6 +17,7 @@ MatrixXd ConjugateGradient(int nx, int ny, int maxIter, double dx, double dy, do
 	MatrixXd p = MatrixXd::Zero(nx + 1, ny + 1);
 	MatrixXd Ap = MatrixXd::Zero(nx + 1, ny + 1);
 	MatrixXd rOld = MatrixXd::Zero(nx + 1, ny + 1);
+    MatrixXd rr = MatrixXd::Zero(nx + 1, ny + 1);
 
 	CalculateResidual(nx, ny, dx, dy, f, un, r);
 
@@ -45,7 +46,8 @@ MatrixXd ConjugateGradient(int nx, int ny, int maxIter, double dx, double dy, do
 
 		r.block(1, 1, nx - 1, ny - 1) -= alpha * Ap.block(1, 1, nx - 1, ny - 1);
         //
-		rms = ComputeL2norm(nx, ny, r);
+        CalculateResidual(nx, ny, dx, dy, f, un, rr);
+		rms = ComputeL2norm(nx, ny, rr);
 
 		cout << "The count of iteration is " << iterNum << endl;
 		cout << "rms = " << setprecision(6) << rms / initRms << endl;

@@ -86,6 +86,9 @@
     <ClCompile Include="HOM%28SEM%29\HOM1D_Helmholtz.cpp">
       <Filter>源文件\High Order Methods</Filter>
     </ClCompile>
+    <ClCompile Include="HOM(SEM)\HOM1D_Helmholtz_v2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\..\..\..\..\software\c_lib\fftw-3.3.5-dll64\libfftw3l-3.lib">

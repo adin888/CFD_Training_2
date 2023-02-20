@@ -68,6 +68,7 @@ void LDC_Solver();
 
 void FittingFunction();
 void HOM1DHelmholtz();
+void HOM1DHelmholtz2();
 
 #pragma region Function
 

@@ -160,6 +160,7 @@
     <ClCompile Include="HOM%28SEM%29\HOM_Test.cpp" />
     <ClCompile Include="HOM%28SEM%29\Jacobi.cpp" />
     <ClCompile Include="FDM\Lid_Driven_Cavity.cpp" />
+    <ClCompile Include="HOM(SEM)\HOM1D_Helmholtz_v2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="FDM\math.cpp" />
     <ClCompile Include="FDM\Roe_Riemann_Solver.cpp" />

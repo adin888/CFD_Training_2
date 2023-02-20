@@ -53,3 +53,4 @@ void CalculateResidual(int nx, int ny, double dx, double dy, MatrixXd f, MatrixX
         }
     }
 }
+

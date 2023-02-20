@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 		Rusanov_Riemann_Solver();
 		break;
 	case(4):
-		FFT_Solver();              //Existing problems!
+		FFT_Solver();              
 		break;
 	case(5):
 		FST_Solver();
@@ -37,6 +37,13 @@ int main(int argc, char* argv[])
 		break;
 	case(10):
 		HOM1DHelmholtz();
+		break;
+	case(11):
+		HOM1DHelmholtz2();
+		break;
+	case(0):
+		// for test
+		cout << 0%5 << endl;
 		break;
 
 	default:

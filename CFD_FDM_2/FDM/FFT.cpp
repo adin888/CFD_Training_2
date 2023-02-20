@@ -8,10 +8,13 @@
 MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd u)
 {
     int rounded = floor((nx + 1) / 2 + 1);
-    MatrixXcd fF(rounded, ny + 1);
-    MatrixXcd uF(rounded, ny + 1);
+    VectorXd kx(nx);
+    VectorXd ky(ny);
 
-    //MatrixXd udebug(u.rows(), u.cols());
+    MatrixXcd fIn = MatrixXcd::Zero(nx, ny);
+    MatrixXcd fOut = MatrixXcd::Zero(nx, ny);
+    MatrixXcd uIn = MatrixXcd::Zero(nx, ny);
+    MatrixXcd uOut = MatrixXcd::Zero(nx, ny);
     
     double xx = 2.0 / (dx * dx);
     double yy = 2.0 / (dy * dy);
@@ -20,34 +23,45 @@ MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixX
     double dw = 2.0 * PI / nx;                     // nx = ny in this example
     double eps = 1.0e-6;
 
-    //fft(nx, ny, f, ff);
+    for (int i = 0; i < (int)(nx/2); i++)
+    {
+        kx(i) = dw * i;
+        kx(i + (int)(nx / 2)) = dw * (i - int(nx / 2));
+    }
+    kx(0) = eps;
+    ky = kx;
+
+    fIn.real() = f.block(0, 0, nx, ny);
+
     fftw_plan plan;
-    plan = fftw_plan_dft_r2c_2d(nx + 1, ny + 1, f.data(), (fftw_complex*)fF.data(), FFTW_ESTIMATE);
+    plan = fftw_plan_dft_2d(nx, ny, (fftw_complex*)fIn.data(), (fftw_complex*)fOut.data(), FFTW_FORWARD, FFTW_ESTIMATE);
 
     fftw_execute(plan);
     
     fftw_destroy_plan(plan);
 
-    for (int i = 0; i < rounded; i++)
+    fOut(0, 0) = 0.0;
+
+    for (int i = 0; i < nx; i++)
     {
         for (int j = 0; j < ny; j++)
         {
-            uF(i, j) = fF(i, j) / (xy + xx * cos(2*PI*i/nx) + yy * cos(2*PI*j/ny));
-            //uF(i, j) = fF(i, j) / (-pow(wx(i),2)- pow(wy(i), 2));
+            uOut(i, j) = fOut(i, j) / (xy + xx * cos(kx(j)) + yy * cos(ky(i)));
+            //uIn(i, j) = fOut(i, j) / (-pow(wx(i),2)- pow(wy(i), 2));
         }
     }
 
-    plan = fftw_plan_dft_c2r_2d(nx + 1, ny + 1, (fftw_complex*)fF.data(), u.data(), FFTW_ESTIMATE);
+    plan = fftw_plan_dft_2d(nx, ny, (fftw_complex*)uOut.data(), (fftw_complex*)uIn.data(), FFTW_BACKWARD, FFTW_ESTIMATE);
 
     fftw_execute(plan);
 
     fftw_destroy_plan(plan);
+   
+    u.block(0, 0, nx, ny) = uIn.real();
 
     u.row(nx) = u.row(0);
     u.col(ny) = u.col(0);
-    
-    //ifft(nx, ny, u, uf);
-   
+
     return u / ((nx + 1) * (ny + 1));
 }
 
@@ -57,8 +71,8 @@ void FFT_Solver()
     double x_r = 1.0;
     double y_l = 0.0;
     double y_r = 1.0;
-    int nx = 32;
-    int ny = 32;
+    int nx = 512;
+    int ny = 512;
     double dx = (x_r - x_l) / nx;
     double dy = (y_r - y_l) / ny;
 
