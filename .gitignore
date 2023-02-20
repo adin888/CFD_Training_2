@@ -7,6 +7,25 @@
 *.o
 *.obj
 *.ipch
+*.pdb
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.exe
+*.dll
+*.user
+*.aps
+*.pch
+*.obj
+*.ncb
+*.idb
+*.tlb
+*.tlh
+*.log
+*.tlog
+*.lastbuildstate
+*.exe.recipe
 
 # Precompiled Headers
 *.gch
@@ -34,5 +53,9 @@
 
 # Additional files
 *.csv
-*.pdb
 *.png
+
+# File folder
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
