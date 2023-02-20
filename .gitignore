@@ -26,6 +26,7 @@
 *.tlog
 *.lastbuildstate
 *.exe.recipe
+*.VC.db
 
 # Precompiled Headers
 *.gch
