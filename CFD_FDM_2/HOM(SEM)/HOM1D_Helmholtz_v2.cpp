@@ -147,8 +147,8 @@ ArrayXd GSHelmholtz1D2(int pNode, int ne, int np, int maxIter, double de, double
 	MatrixXd Ae = MatrixXd::Zero(pNode + 1, pNode + 1);
 	MatrixXd diagA = MatrixXd::Zero(np, np);
 	MatrixXd A = MatrixXd::Zero(np - ne + 1, np - ne + 1);       //(lambda*M+L)
-	MatrixXd Linv = MatrixXd::Zero(np - ne, np - ne);     //left hand side of the expression for uh, lower truangular
-	MatrixXd Us = MatrixXd::Zero(np - ne, np - ne);   //strictly upper triangular
+	MatrixXd Linv = MatrixXd::Zero(np - ne + 1, np - ne + 1);  //left hand side of the expression for uh, lower truangular
+	MatrixXd Us = MatrixXd::Zero(np - ne + 1, np - ne + 1);   //strictly upper triangular
 
 	// Defining the distribution matrix
 	j = 0;
@@ -171,15 +171,16 @@ ArrayXd GSHelmholtz1D2(int pNode, int ne, int np, int maxIter, double de, double
 	f = Q.transpose() * (VectorXd)fh;
 
 	// Calculate the inverse lower triangular and strictly upper triangular
-	Linv = A.block(1, 1, np - ne, np - ne).triangularView<Lower>();
+	Linv = A.triangularView<Lower>();
 	if (Linv.determinant() != 0.0)
 		Linv = Linv.inverse();
 	else
 		cout << "Error: the matrix L is not invertible." << endl;
-	Us = A.block(1, 1, np - ne, np - ne).triangularView<StrictlyUpper>();
+	Us = A.triangularView<StrictlyUpper>();
 
 	// Dirichlet BC at x = -1 
 	u(0) = dbc;
+	f(0) -= bcn;
 	f(np - ne) += bcn;
 	r = f - A * u;
 	r(0) = 0;
@@ -190,11 +191,12 @@ ArrayXd GSHelmholtz1D2(int pNode, int ne, int np, int maxIter, double de, double
 
 	for (int iterNum = 1; iterNum < maxIter; iterNum++)
 	{
-		u.block(1, 0, np - ne, 1) = Linv * (f.block(1, 0, np - ne, 1) - Us * u.block(1, 0, np - ne, 1));
-		r.block(1, 0, np - ne, 1) = f.block(1, 0, np - ne, 1) - A.block(1, 1, np - ne, np - ne) * u.block(1, 0, np - ne, 1);
-		//r = f - A * u;
+		u = Linv * (f - Us * u);
+		r = f - A * u;
+
 		// Dirichlet BC at x = -1 
-		//r(0) = 0.0;
+		u(0) = dbc;
+		r(0) = 0.0;
 
 		rms = pow(r.array(), 2).sum() / (pNode + 1) / ne;
 
@@ -255,10 +257,7 @@ ArrayXd GSHelmholtz1D3(int pNode, int ne, int np, int maxIter, double de, double
 	u(0) = dbc;
 	f(0) -= bcn;
 	f(np - ne) += bcn;
-	/*for (i = 1; i < (np - ne + 1); i++)
-	{
-		f(i) -= A(i, 0) * dbc;
-	}*/
+
 	r = f - A * u;
 	r(0) = 0;
 
@@ -282,8 +281,6 @@ ArrayXd GSHelmholtz1D3(int pNode, int ne, int np, int maxIter, double de, double
 			u(i) = (f(i) - temp1 - temp2) / A(i, i);
 		}
 		
-		//u.block(1, 0, np - ne, 1) = Linv * (f.block(1, 0, np - ne, 1) - Us * u.block(1, 0, np - ne, 1));
-		//r.block(1, 0, np - ne, 1) = f.block(1, 0, np - ne, 1) - A.block(1, 1, np - ne, np - ne) * u.block(1, 0, np - ne, 1);
 		r = f - A * u;
 		// Dirichlet BC at x = -1 
 		u(0) = dbc;
@@ -387,11 +384,11 @@ void HOM1DHelmholtz2()
 	//uh = CGHelmholtz1D2(pNode, ne, np, maxIter, de, lambda, 1e-5,
 	//	bcn, massMatrix, stiffnessMatrix, fh, uh);
 
-	//uh = GSHelmholtz1D2(pNode, ne, np, maxIter, de, lambda, 1e-5,
-	//	bcn, massMatrix, stiffnessMatrix, fh, uh);
-
-	uh = GSHelmholtz1D3(pNode, ne, np, maxIter, de, lambda, 1e-5,
+	uh = GSHelmholtz1D2(pNode, ne, np, maxIter, de, lambda, 1e-5,
 		bcn, massMatrix, stiffnessMatrix, fh, uh);
+
+	//uh = GSHelmholtz1D3(pNode, ne, np, maxIter, de, lambda, 1e-5,
+	//	bcn, massMatrix, stiffnessMatrix, fh, uh);
 
 	/* calculate the exact result and error */
 

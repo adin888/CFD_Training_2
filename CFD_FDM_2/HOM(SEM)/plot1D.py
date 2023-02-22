@@ -24,7 +24,7 @@ with open('../u_final.csv', 'r') as u:
   plt.plot(X, Uh, label='u_simulated')
   plt.xlabel('x')
   plt.ylabel('value')
-  plt.title('result of 1d Helmholtz equation with Galerkin')
+  plt.title('result of 1d Helmholtz equation with Galerkin(GS)')
   plt.legend()
   plt.savefig('HOM1D_Helmholtz.png',dpi=300)
   plt.show()

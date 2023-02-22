@@ -209,9 +209,9 @@ ArrayXXd GSHelmholtz1D(int pNode, int ne, int maxIter, double de, double lambda,
 
 void HOM1DHelmholtz()
 {
-	int pNode = 5;			 //polynomial degree
+	int pNode = 7;			 //polynomial degree
 	int nx = 200;            //number of plotting points per element
-	int ne = 10;              //number of elements
+	int ne = 20;              //number of elements
 	int i, j, e, q;
 
 	double dx = 2.0 / nx;    

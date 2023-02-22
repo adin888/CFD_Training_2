@@ -66,3 +66,4 @@
 *.db-shm
 *.db-wal
 *.opendb
+*.filters
