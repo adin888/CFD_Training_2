@@ -2,7 +2,7 @@
 
 /*
 * -Using Fast Fourier Transform to slove Poisson equation for the periodic domain
-* -Using additional library FFTW3, but there were problems with the calculation
+* -Using additional library FFTW3
 */
 
 MatrixXd Numerical_FFT(int nx, int ny, double dx, double dy, MatrixXd f, MatrixXd u)

@@ -54,9 +54,15 @@
 
 # Additional files
 *.csv
-*.png
+*.txt
+*.vcxproj.user
+
 
 # File folder
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
+
+*.db-shm
+*.db-wal
+*.opendb
