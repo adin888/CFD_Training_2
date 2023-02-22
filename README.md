@@ -47,5 +47,7 @@ The methods used in each source file and the partial differential equations solv
 	-   Using Galerkin method to solve 1d-Helmholtz equation
 	-   Using Gauss–Lobatto–Legendre points to a
 	-   Using Conjugate gradient(CG) method oder Gauss-Seidel(GS) method to solve system of equations
+	-   ![](https://github.com/adin888/CFD_Training_2/blob/main/CFD_FDM_2/HOM(SEM)/HOM1D_HelmholtzCG.png)
+	-   ![](https://github.com/adin888/CFD_Training_2/blob/main/CFD_FDM_2/HOM(SEM)/HOM1D_HelmholtzGS.png)
 ###Note：
 You need to configure the Eigen library before using the code in this program. 
