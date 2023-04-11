@@ -1,5 +1,5 @@
 # CFD_Training_2
-Programming exercises for different methods.  
+Programming exercises for different methods, which is based on the work of Suraj Pawar and Omer San in article "CFD Julia: A Learning Module Structuring an Introductory Course on Computational Fluid Dynamics".  
 The purpose of this repository is to give ideas for building a complete numerical simulation program. The purpose of this repository is to give ideas for building a complete numerical simulation program. Starting from the FDM, each example uses a different method to solve the corresponding partial differential equation. The source code is stored in the path CFD\_Training\_2/ CFD\_FDM_2. The spectral method(high order method) in FEM was added later.   
 The methods used in each source file and the partial differential equations solved are given below:  
 
